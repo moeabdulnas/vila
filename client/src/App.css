@@ -69,20 +69,30 @@ table {
   height: 100vh;
 }
 
+/* TODO: Implement mediaqueries for smaller and really big screen sizes*/
 
 @media screen and (max-width: 599px) {
-  .App-logo {
+  /* .App-logo {
     top: 16px;
     left: 80px;
     position: absolute;
     width: 200px;
-  }
+  } */
 }
 
-@media screen and (min-width: 600px) {
-  .App-logo {
+@media screen and (min-width: 600px) and (max-width: 1400px) {
+  /* .App-logo {
     top: 32px;
     left: 32px;
+    position: absolute;
+  } */
+
+  .Navbar {
+    display: flex;
+    justify-content: space-between;
+    top: 32px;
+    left: 5%;
+    right: 4%;
     position: absolute;
   }
 
