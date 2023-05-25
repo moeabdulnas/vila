@@ -1,6 +1,7 @@
 import './App.css';
 import icon from './assets/images/logo.png';
 import sun from './assets/images/sun.svg';
+
 function App() {
   return (
     <div className="App">
