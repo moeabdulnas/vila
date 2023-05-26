@@ -8,6 +8,9 @@ import { useEffect, useState, useRef } from "react";
 function App() {
   const [minutes, setMinutes] = useState(10);
 
+  useEffect(() => {
+    console.log(minutes);
+  }, [minutes]);
   return (
     <div className="App">
       <div className='Navbar'>
@@ -15,8 +18,7 @@ function App() {
         { <img src={icon} className="App-logo" alt="logo" />}
         </div>
         <div className='OptionsDiv'>
-          <Options mins={setMinutes}/>
-
+          <Options setMins={setMinutes} mins={minutes}/>
         </div>
       </div>
       <div className="Sun">

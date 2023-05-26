@@ -8,12 +8,7 @@ import MinutesDialog from "./dialogs/MinutesDialog.jsx";
 const Options = (props) => {
     const [showDialog, setShowDialog] = useState(false);
 
-    // useEffect(() => {
-    //     if (showDialog) {
-    //         const dialog = document.querySelector('.Sand-button');
-    //         dialog.showModal();
-    //     }
-    // }, [showDialog]);
+
 
     return (
         <main className="Container">
@@ -35,7 +30,7 @@ const Options = (props) => {
                     <img src={cloud} className="Cloud-logo option" alt="bell" />
                 </button>
             </div>
-            {showDialog ? <MinutesDialog show={setShowDialog} setMinutes={props.mins}/> : null}
+            {showDialog ? <MinutesDialog show={setShowDialog} setMinutes={props.setMins} mins={props.mins}/> : null}
         </main>
     )
 }
