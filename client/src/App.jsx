@@ -7,10 +7,16 @@ import { useEffect, useState, useRef } from "react";
 
 function App() {
   const [minutes, setMinutes] = useState(10);
+  const [seconds, setSeconds] = useState(0);
+  const [deadline, setDeadline] = useState(addMinutes(new Date(), minutes));
 
   useEffect(() => {
     console.log(minutes);
   }, [minutes]);
+
+  function addMinutes(date, minutes) {
+    return new Date(date.getTime() + minutes*60000);
+  }
 
   
   return (
