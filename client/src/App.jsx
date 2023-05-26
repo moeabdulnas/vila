@@ -1,8 +1,9 @@
 import './App.css';
 import icon from './assets/images/logo.png';
 import sun from './assets/images/sun.svg';
-import Timer from './components/Timer';
-import Options from './components/Options';
+import Timer from './components/Timer.jsx';
+import Options from './components/Options.jsx';
+
 
 function App() {
   return (
@@ -14,6 +15,13 @@ function App() {
         </div>
         <div className='OptionsDiv'>
           <Options />
+          <dialog  open>
+            <p>choose amount of minutes to meditate</p>
+            <form method="dialog">
+              <button>OK</button>
+            </form>
+        </dialog>
+
         </div>
       </div>
       {/* </header> */}

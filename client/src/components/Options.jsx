@@ -9,13 +9,13 @@ const Options = () => {
         <div className="Options">
             {/* TODO: Set hover effect*/}
             <button type="Sand-button">
-                <img src={sand} className="Sand-logo" alt="bell" />
+                <img src={sand} className="Sand-logo option" alt="bell" />
             </button>
             <button type="Bell-button">
-                <img src={bell} className="Bell-logo" alt="bell" />
+                <img src={bell} className="Bell-logo option" alt="bell" />
             </button>
             <button type="Cloud-button">
-                <img src={cloud} className="Cloud-logo" alt="bell" />
+                <img src={cloud} className="Cloud-logo option" alt="bell" />
             </button>
         </div>
     )

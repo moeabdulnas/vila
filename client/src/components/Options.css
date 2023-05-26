@@ -1,9 +1,18 @@
-.Sand-button, .Bell-button {
-    margin-right: 42px;
-}
-
 .Options > * {
     margin-top: 16px;    
+}
+
+.Sand-logo, .Bell-logo, .Cloud-logo {
+    width: 36px;
+    padding: 0;
+}
+
+.Options {
+    width: max-content;
+}
+
+.Sand-logo, .Bell-logo {
+    margin-right: 32px;
 }
 
 button {
@@ -11,14 +20,26 @@ button {
     cursor: pointer;
     appearance: none;
     background-color: inherit;
-    margin-right: 32px;
 }
 
 img {
     margin: auto;
 }
 
-.Sand-logo, .Bell-logo, .Cloud-logo {
-    width: 36px;
-    padding: 0;
+/* 
+Hover effect attempt on buttons/doesn't work now
+.option:after {
+    content: "";
+    position: absolute;
+    background-color: blueviolet;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
 }
+
+
+.option:hover:after {
+    width: 100%;
+} */
