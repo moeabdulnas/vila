@@ -1,3 +1,4 @@
+/* TOOD: Fix space between the buttons*/
 .Options > * {
     margin-top: 16px;    
 }
@@ -15,7 +16,7 @@
     margin-right: 32px;
 }
 
-button {
+.Bell-button, .Cloud-button, .Sand-button {
     border: none;
     cursor: pointer;
     appearance: none;

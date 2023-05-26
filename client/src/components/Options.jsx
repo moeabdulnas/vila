@@ -8,13 +8,13 @@ const Options = () => {
     return (
         <div className="Options">
             {/* TODO: Set hover effect*/}
-            <button type="Sand-button">
+            <button className="Sand-button">
                 <img src={sand} className="Sand-logo option" alt="bell" />
             </button>
-            <button type="Bell-button">
+            <button className="Bell-button">
                 <img src={bell} className="Bell-logo option" alt="bell" />
             </button>
-            <button type="Cloud-button">
+            <button className="Cloud-button">
                 <img src={cloud} className="Cloud-logo option" alt="bell" />
             </button>
         </div>
