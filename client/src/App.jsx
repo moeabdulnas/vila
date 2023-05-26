@@ -11,6 +11,8 @@ function App() {
   useEffect(() => {
     console.log(minutes);
   }, [minutes]);
+
+  
   return (
     <div className="App">
       <div className='Navbar'>

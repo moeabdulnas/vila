@@ -2,9 +2,6 @@ import './MinutesDialog.css'
 import { useEffect, useState, useRef } from "react";
 
 const MinutesDialog = (props) => {
-    // const [minutes, setMinutes] = useState(10);
-
-
     return (
         props.show ? (
             <div>
