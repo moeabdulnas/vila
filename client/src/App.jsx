@@ -23,7 +23,7 @@ function App() {
           // showProp={setDialogRef}
 
           />
-          <dialog className='TimeOption'
+          {/* <dialog className='TimeOption'
           // ref={dialogRef}
           >
             <p className='MinutesParagraph'>minutes</p>
@@ -38,7 +38,7 @@ function App() {
             <form method="dialog">
               <button className='Ok'>OK</button>
             </form>
-          </dialog>
+          </dialog> */}
 
         </div>
       </div>
