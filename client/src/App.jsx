@@ -3,9 +3,14 @@ import icon from './assets/images/logo.png';
 import sun from './assets/images/sun.svg';
 import Timer from './components/Timer.jsx';
 import Options from './components/Options.jsx';
-
+import { useEffect, useState, useRef } from "react";
 
 function App() {
+  const [minutes, setMinutes] = useState(10);
+  // const [dialogRef, setDialogRef] = useRef([null]);
+
+  
+ 
   return (
     <div className="App">
       {/* <header className="App-header"> */}
@@ -14,16 +19,21 @@ function App() {
         { <img src={icon} className="App-logo" alt="logo" />}
         </div>
         <div className='OptionsDiv'>
-          <Options />
-          <dialog className='TimeOption' open>
+          <Options 
+          // showProp={setDialogRef}
+
+          />
+          <dialog className='TimeOption'
+          // ref={dialogRef}
+          >
             <p className='MinutesParagraph'>minutes</p>
             <div className='MinuteStepper'>
-              <button className='Minus'>-</button>
+              <button className='Minus Step'>-</button>
               <input 
                 type='number' className='Minutes' 
                 value='10' min='1' max='120' step='5' readOnly
                 />
-              <button className='Plus'>+</button>
+              <button className='Plus Step'>+</button>
             </div>
             <form method="dialog">
               <button className='Ok'>OK</button>

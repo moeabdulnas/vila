@@ -4,11 +4,15 @@ import cloud from "../assets/images/cloud.png";
 import sand from "../assets/images/sand.png";
 import "./Options.css";
 
-const Options = () => {
+const Options = (props) => {
     return (
         <div className="Options">
             {/* TODO: Set hover effect*/}
-            <button className="Sand-button">
+            <button className="Sand-button" onClick={
+                () => {
+                    props.showProp.current.showModal();
+                }
+            }>
                 <img src={sand} className="Sand-logo option" alt="bell" />
             </button>
             <button className="Bell-button">
