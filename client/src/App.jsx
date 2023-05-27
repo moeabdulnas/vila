@@ -39,11 +39,25 @@ const timeView = (date, minutesFrom) => {
 function App() {
   const [minutes, setMinutes] = useState(10);
   const [timeLeftString, setTimeLeftString] = useState(null);
+  const [meditationStart, setMeditationStart] = useState(false);
 
   useEffect(() => {
+    while(meditationStart) {
+        var x = setInterval( function()  {
+          var now = new Date();
+          setTimeLeftString(timeView(now, minutes));
+          console.log(timeLeftString);
+        }, 1000);
+    }
+  }, [meditationStart]);
 
+
+
+  useEffect(() => {
   }, [minutes, timeLeftString]);
-  
+
+
+
   return (
     <div className="App">
       <div className='Navbar'>
