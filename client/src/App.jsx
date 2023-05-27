@@ -42,8 +42,8 @@ function App() {
   const [meditationStart, setMeditationStart] = useState(false);
 
   useEffect(() => {
-    while(meditationStart) {
-        var x = setInterval( function()  {
+    if (meditationStart) {
+        setInterval( function()  {
           var now = new Date();
           setTimeLeftString(timeView(now, minutes));
           console.log(timeLeftString);
