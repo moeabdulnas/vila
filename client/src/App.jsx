@@ -5,19 +5,44 @@ import Timer from './components/Timer.jsx';
 import Options from './components/Options.jsx';
 import { useEffect, useState, useRef } from "react";
 
+let hours;
+let minutes;
+let seconds;
+
+function addMinutes(date, minutes) {
+  return new Date(date.getTime() + minutes*60000);
+}
+
+const timeView = (date, minutesFrom) => {
+  const deadline = addMinutes(date, minutesFrom);
+  const timeLeft = deadline - date;
+  hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+  seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+  let timeLeftString = '';
+  if (hours != 0) {
+      minutes = hours * 60 + minutes;
+  }
+  if (minutes < 10 && seconds < 10) {
+      timeLeftString = '0' + minutes + ':0' + seconds;
+  } else if (minutes < 10 && seconds >= 10) {
+          timeLeftString = '0' + minutes + ':' + seconds;
+  } else if (minutes >= 10 && seconds < 10) {
+          timeLeftString = minutes + ':0' + seconds;
+  } else {
+          timeLeftString = minutes + ':' + seconds;
+  }
+  return timeLeftString;
+}
+
 function App() {
   const [minutes, setMinutes] = useState(10);
-  const [seconds, setSeconds] = useState(0);
-  const [deadline, setDeadline] = useState(addMinutes(new Date(), minutes));
+  const [timeLeftString, setTimeLeftString] = useState(null);
 
   useEffect(() => {
-    console.log(minutes);
-  }, [minutes]);
 
-  function addMinutes(date, minutes) {
-    return new Date(date.getTime() + minutes*60000);
-  }
-
+  }, [minutes, timeLeftString]);
   
   return (
     <div className="App">
@@ -26,7 +51,7 @@ function App() {
         { <img src={icon} className="App-logo" alt="logo" />}
         </div>
         <div className='OptionsDiv'>
-          <Options setMins={setMinutes} mins={minutes}/>
+          <Options setMins={setMinutes} mins={minutes} setString={setTimeLeftString}/>
         </div>
       </div>
       <div className="Sun">

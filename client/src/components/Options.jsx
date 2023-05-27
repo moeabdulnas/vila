@@ -30,7 +30,7 @@ const Options = (props) => {
                     <img src={cloud} className="Cloud-logo option" alt="bell" />
                 </button>
             </div>
-            {showDialog ? <MinutesDialog show={setShowDialog} setMinutes={props.setMins} mins={props.mins}/> : null}
+            {showDialog ? <MinutesDialog show={setShowDialog} setMinutes={props.setMins} mins={props.mins} setTimeLeftString={props.setString}/> : null}
         </main>
     )
 }
