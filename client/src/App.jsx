@@ -12,7 +12,7 @@ function addMinutes(date, minutes) {
 // TODO: Make actual time start to tick from for example 10:00 at first.
 // TODO: Implement working stop function for the timer to stop
 function App() {
-  const [minutes, setMinutes] = useState(0.2);
+  const [minutes, setMinutes] = useState(10);
   const [timeLeftString, setTimeLeftString] = useState(null);
   const [meditationStart, setMeditationStart] = useState(false);
   // const [countDownDate, setCountDownDate] = useState(null);
@@ -42,6 +42,7 @@ function App() {
         timeLeft = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
       }
       console.log(timeLeft);
+      document.getElementsByClassName('TimeView')[0].innerHTML = timeLeft;
     }
     requestAnimationFrame(updateCountdown); // Call updateCountdown on the next animation frame
   }
@@ -71,6 +72,9 @@ function App() {
           {<img src={sun} className="Sun-logo" alt="sun" />}
         </div>
       </div>
+      {/* <div className="Timer"> */}
+            <p className="TimeView"></p>
+        {/* </div> */}
     </div>
   );
 }
