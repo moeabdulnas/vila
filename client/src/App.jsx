@@ -15,20 +15,16 @@ function App() {
   const [minutes, setMinutes] = useState(10);
   const [timeLeftString, setTimeLeftString] = useState(null);
   const [meditationStart, setMeditationStart] = useState(false);
-  // const [countDownDate, setCountDownDate] = useState(null);
+  const [countDownDate, setCountDownDate] = useState(null);
 
-  let countDownDate;
+  // let countDownDate;
   let timeLeft = '';
-  console.log(timeLeft);
+  // console.log(timeLeft);
   let t = 0
   let intervalTime = 1 // 1 second interval
   const interval = intervalTime * 60 
 
   function updateCountdown() {
-
-    if (!countDownDate) {
-      countDownDate = addMinutes(new Date(), minutes);
-    }
     if (++t % interval == 0) {
       const now = new Date().getTime();
       const distance = countDownDate - now;
@@ -41,19 +37,25 @@ function App() {
       } else {
         timeLeft = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
       }
+      setTimeLeftString(timeLeft);
       console.log(timeLeft);
-      document.getElementsByClassName('TimeView')[0].innerHTML = timeLeft;
     }
     requestAnimationFrame(updateCountdown); // Call updateCountdown on the next animation frame
   }
 
+  useEffect( () => {
+    // console.log(countDownDate);
+    updateCountdown(minutes);  
+  }, [countDownDate] )
+
+  
   
   useEffect(() => {
-    if (!meditationStart) {
-      if (!timeLeft.includes("-") )
-      updateCountdown(minutes);       
-    }
-  }, [meditationStart, minutes]);
+    // if (!meditationStart) {
+      // if (!timeLeft.includes("-") )
+      setCountDownDate(addMinutes(new Date(), minutes));
+    // }
+  }, [minutes]);
 
 
 
@@ -72,9 +74,7 @@ function App() {
           {<img src={sun} className="Sun-logo" alt="sun" />}
         </div>
       </div>
-      {/* <div className="Timer"> */}
-            <p className="TimeView"></p>
-        {/* </div> */}
+        <p className="TimeView"> {timeLeftString} </p>
     </div>
   );
 }
