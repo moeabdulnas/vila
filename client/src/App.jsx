@@ -10,51 +10,49 @@ function addMinutes(date, minutes) {
 }
 
 // TODO: Make actual time start to tick from for example 10:00 at first.
-// TODO: Implement working stop function for the timer to stop
 function App() {
-  const [minutes, setMinutes] = useState(10);
+  const [minutes, setMinutes] = useState(0.2);
   const [timeLeftString, setTimeLeftString] = useState(null);
   const [meditationStart, setMeditationStart] = useState(false);
   const [countDownDate, setCountDownDate] = useState(null);
 
-  // let countDownDate;
-  let timeLeft = '';
-  // console.log(timeLeft);
-  let t = 0
-  let intervalTime = 1 // 1 second interval
-  const interval = intervalTime * 60 
-
+  // TODO: Change refactor stringSetting to a function that returns a string
+  //       That way we can use it for when meditatiion has not started and when it has
   function updateCountdown() {
-    if (++t % interval == 0) {
-      const now = new Date().getTime();
-      const distance = countDownDate - now;
-      const totalMinutes = Math.floor(distance / (1000 * 60));
-      const hours = Math.floor(totalMinutes / 60);
-      const minutes = totalMinutes % 60;
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      if (hours > 0) {
-        timeLeft = hours.toString().padStart(2, '0') + ':' + minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
-      } else {
-        timeLeft = minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
-      }
-      setTimeLeftString(timeLeft);
-      console.log(timeLeft);
+    // Getting the current time and calculating the time left to the deadline
+    const now = new Date().getTime();
+    const timeLeftToDeadLine = countDownDate - now;
+    const totalMinutes = Math.floor(timeLeftToDeadLine / (1000 * 60));
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+    const seconds = Math.floor((timeLeftToDeadLine % (1000 * 60)) / 1000);
+  
+    if (hours > 0) {
+      setTimeLeftString(hours.toString().padStart(2, '0') + ':' + minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0'));
+    } else {
+      setTimeLeftString(minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0'));
     }
-    requestAnimationFrame(updateCountdown); // Call updateCountdown on the next animation frame
+    
+    if (timeLeftToDeadLine > 0) {
+      requestAnimationFrame(updateCountdown);
+    } else {
+      setTimeLeftString('00:00');
+      setMinutes(0);
+    }
+
   }
+  
+  
 
   useEffect( () => {
-    // console.log(countDownDate);
+    // TODO: Change to handle when meditation has started instead of when minutes is changed
     updateCountdown(minutes);  
   }, [countDownDate] )
 
   
-  
   useEffect(() => {
-    // if (!meditationStart) {
-      // if (!timeLeft.includes("-") )
-      setCountDownDate(addMinutes(new Date(), minutes));
-    // }
+    // TODO: Change to handle when meditation has started instead of when minutes is changed
+      if(minutes > 0) setCountDownDate(addMinutes(new Date(), minutes));
   }, [minutes]);
 
 
