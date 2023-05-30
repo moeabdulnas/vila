@@ -25,7 +25,10 @@ function App() {
   const [minutes, setMinutes] = useState(10);
   const [timeLeftString, setTimeLeftString] = useState(null);
   const [meditationStart, setMeditationStart] = useState(false);
+  const [buttonVisible, setButtonVisible] = useState(false);
+  const [timeVisible, setTimeVisible] = useState(false);
   const [countDownDate, setCountDownDate] = useState(null);
+  const [buttonText, setButtonText] = useState('Start');
 
   function updateCountdown() {
     // Getting the current time and calculating the time left to the deadline
@@ -53,18 +56,27 @@ function App() {
   
 
   useEffect( () => {
-    // TODO: Change to handle when meditation has started instead of when minutes is changed
-    // updateCountdown();  
-    setTimeLeftString(getMeditationTime(minutes));
+    updateCountdown();  
+    // setTimeLeftString(getMeditationTime(minutes));
   }, [countDownDate] )
 
   
   useEffect(() => {
-    // TODO: Change to handle when meditation has started instead of when minutes is changed
-      if(minutes > 0) setCountDownDate(addMinutes(new Date(), minutes));
+    setMinutes(minutes);
+    setTimeLeftString(getMeditationTime(minutes));
   }, [minutes]);
 
-
+  useEffect(() => {
+    if (meditationStart) {
+      setButtonText('Stop');
+      console.log(minutes);
+      if(minutes > 0) setCountDownDate(addMinutes(new Date(), minutes));
+    }
+    else {
+      setButtonText('Start');
+    }
+    
+  }, [meditationStart]);
 
   return (
     <div className="App">
@@ -73,16 +85,32 @@ function App() {
         { <img src={icon} className="App-logo" alt="logo" />}
         </div>
         <div className='OptionsDiv'>
-          <Options setMins={setMinutes} mins={minutes} setString={setTimeLeftString}/>
+          <Options setMins={setMinutes} mins={minutes} 
+          setString={setTimeLeftString} setTimeVisible={setTimeVisible} setButtonVisible={setButtonVisible}/>
         </div>
       </div>
       <div className="Sun">
+      {
+        buttonVisible ? <button className="StartButton" onClick={() => {
+          if (meditationStart) {
+            setMeditationStart(false);
+          }
+          else {
+            setMeditationStart(true);
+          }
+          // updateCountdown();
+        }}>{buttonText}</button>: null
+      }
+      
         <div>
           {<img src={sun} className="Sun-logo" alt="sun" />}
         </div>
       </div>
-      <p className="TimeView"> {timeLeftString} </p>
 
+      {
+        timeVisible ? <p className="TimeView"> {timeLeftString} </p>: null
+      }
+      
     </div>
   );
 }

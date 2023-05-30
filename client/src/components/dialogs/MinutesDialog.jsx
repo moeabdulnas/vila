@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from "react";
 
 const MinutesDialog = (props) => {
     return (
-        props.show ? (
+        props.showMinuteDialog ? (
             <div>
                 <dialog className='TimeOption' open>
                     <p className='MinutesParagraph'>minutes</p>
@@ -38,9 +38,9 @@ const MinutesDialog = (props) => {
                     </div>
                     <form method="dialog">
                         <button className='Ok' onClick={(e) => {
-                                props.show(false);
-                                // props.setMinutes(props.mins);
-                                // props.setTimeLeftString(props.mins);
+                                props.showMinuteDialog(false);
+                                props.setTimeVisible(true);
+                                props.setButtonVisible(true);
                                 e.preventDefault();
                             }
                             }>OK</button>

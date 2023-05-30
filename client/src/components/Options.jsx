@@ -6,7 +6,7 @@ import "./Options.css";
 import MinutesDialog from "./dialogs/MinutesDialog.jsx";
 
 const Options = (props) => {
-    const [showDialog, setShowDialog] = useState(false);
+    const [showMinuteDialog, setShowMinuteDialog] = useState(false);
 
 
 
@@ -17,7 +17,7 @@ const Options = (props) => {
                 <button className="Sand-button" 
                 onClick={
                     () => {
-                        setShowDialog(true);
+                        setShowMinuteDialog(true);
                     }     
                 }
                 >
@@ -30,7 +30,8 @@ const Options = (props) => {
                     <img src={cloud} className="Cloud-logo option" alt="bell" />
                 </button>
             </div>
-            {showDialog ? <MinutesDialog show={setShowDialog} setMinutes={props.setMins} mins={props.mins} setTimeLeftString={props.setString}/> : null}
+            {showMinuteDialog ? <MinutesDialog showMinuteDialog={setShowMinuteDialog} setMinutes={props.setMins}
+                            mins={props.mins} setTimeVisible={props.setTimeVisible} setButtonVisible={props.setButtonVisible}/> : null}
         </main>
     )
 }

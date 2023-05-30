@@ -52,11 +52,11 @@ table {
 @keyframes sizeAnimation {
 
   from {
-    width: 33vw;
+    width: 40vw;
   }
 
   to {
-    width: 40vw;
+    width: 50vw;
   }
 
 
@@ -77,6 +77,17 @@ table {
   font-size: 48px;
   text-align: center;
 }
+
+.StartButton {
+  position: absolute;
+  background-color: #FFBE31;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px 8px 12px;
+  font-size: large;
+  cursor: pointer;
+}
+
 
 /* TODO: Implement mediaqueries for smaller and really big screen sizes*/
 
@@ -117,7 +128,7 @@ table {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 90vh;
   }
 }
 
