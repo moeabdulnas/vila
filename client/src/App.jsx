@@ -9,15 +9,24 @@ function addMinutes(date, minutes) {
   return new Date(date.getTime() + minutes*60000);
 }
 
+const getMeditationTime = (minutes) => {
+  const hours = Math.floor(minutes / 60);
+  const minutesLeft = minutes % 60;
+  const seconds = Math.floor((minutesLeft % 1) * 60);
+  if (hours > 0) {
+    return minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+  } else {
+    return minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0');
+  }
+}
+
 // TODO: Make actual time start to tick from for example 10:00 at first.
 function App() {
-  const [minutes, setMinutes] = useState(0.2);
+  const [minutes, setMinutes] = useState(10);
   const [timeLeftString, setTimeLeftString] = useState(null);
   const [meditationStart, setMeditationStart] = useState(false);
   const [countDownDate, setCountDownDate] = useState(null);
 
-  // TODO: Change refactor stringSetting to a function that returns a string
-  //       That way we can use it for when meditatiion has not started and when it has
   function updateCountdown() {
     // Getting the current time and calculating the time left to the deadline
     const now = new Date().getTime();
@@ -28,7 +37,7 @@ function App() {
     const seconds = Math.floor((timeLeftToDeadLine % (1000 * 60)) / 1000);
   
     if (hours > 0) {
-      setTimeLeftString(hours.toString().padStart(2, '0') + ':' + minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0'));
+      setTimeLeftString(totalMinutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0'));
     } else {
       setTimeLeftString(minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0'));
     }
@@ -39,14 +48,14 @@ function App() {
       setTimeLeftString('00:00');
       setMinutes(0);
     }
-
   }
   
   
 
   useEffect( () => {
     // TODO: Change to handle when meditation has started instead of when minutes is changed
-    updateCountdown(minutes);  
+    // updateCountdown();  
+    setTimeLeftString(getMeditationTime(minutes));
   }, [countDownDate] )
 
   
@@ -72,7 +81,8 @@ function App() {
           {<img src={sun} className="Sun-logo" alt="sun" />}
         </div>
       </div>
-        <p className="TimeView"> {timeLeftString} </p>
+      <p className="TimeView"> {timeLeftString} </p>
+
     </div>
   );
 }

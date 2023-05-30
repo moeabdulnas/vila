@@ -72,9 +72,10 @@ table {
 .TimeView {
   background-color: inherit;
   bottom: 12%;
-  left: 46%;
+  /* left: 46%; */
   position: relative;
   font-size: 48px;
+  text-align: center;
 }
 
 /* TODO: Implement mediaqueries for smaller and really big screen sizes*/

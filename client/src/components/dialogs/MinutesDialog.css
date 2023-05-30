@@ -39,13 +39,13 @@ dialog {
     justify-content: center;
   }
   
-  /*TODO: Make unclickable, because you can click on it now, and it doesn't look good.*/
-  input[type='number'] {
+  input[type='number']:disabled {
     -moz-appearance: textfield;
     text-align: center;
     font-size: 32px;
     border: none;
     color: #203020;
+    background-color: #FFFFFF;
   }
   
   input[type='number']::-webkit-inner-spin-button,

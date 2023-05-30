@@ -20,7 +20,7 @@ const MinutesDialog = (props) => {
                         }>-</button>
                         <input
                             type='number' className='Minutes'
-                            value={props.mins} min='1' max='120' step='5' readOnly
+                            value={props.mins} min='1' max='120' step='5' readOnly disabled
                         />
                         <button className='Plus Step' onClick={
                             (e) => {
@@ -40,7 +40,7 @@ const MinutesDialog = (props) => {
                         <button className='Ok' onClick={(e) => {
                                 props.show(false);
                                 // props.setMinutes(props.mins);
-                                props.setTimeLeftString(props.mins);
+                                // props.setTimeLeftString(props.mins);
                                 e.preventDefault();
                             }
                             }>OK</button>
