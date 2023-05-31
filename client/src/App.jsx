@@ -21,7 +21,7 @@ const getMeditationTime = (minutes) => {
 }
 
 function App() {
-  const [minutes, setMinutes] = useState(0.1);
+  const [minutes, setMinutes] = useState(10);
   const [timeLeftString, setTimeLeftString] = useState(null);
   const [meditationStart, setMeditationStart] = useState(false);
   const [buttonVisible, setButtonVisible] = useState(false);
@@ -30,6 +30,9 @@ function App() {
   const [buttonText, setButtonText] = useState('Start');
   const [requestID, setRequestID] = useState(null);
   const [meditationComplete, setMeditationComplete] = useState(false);
+  const [setBell, setSetBell] = useState(null);
+  const [setSound, setSetSound] = useState(null);
+  const [setVolume, setSetVolume] = useState(null);
 
   function updateCountdown() {
     const now = new Date().getTime();
