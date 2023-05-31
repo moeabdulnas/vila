@@ -22,45 +22,41 @@ const getMeditationTime = (minutes) => {
 
 // TODO: Make actual time start to tick from for example 10:00 at first.
 function App() {
-  const [minutes, setMinutes] = useState(10);
+  const [minutes, setMinutes] = useState(0.2);
   const [timeLeftString, setTimeLeftString] = useState(null);
   const [meditationStart, setMeditationStart] = useState(false);
   const [buttonVisible, setButtonVisible] = useState(false);
   const [timeVisible, setTimeVisible] = useState(false);
   const [countDownDate, setCountDownDate] = useState(null);
   const [buttonText, setButtonText] = useState('Start');
+  const [requestID, setRequestID] = useState(null);
 
   function updateCountdown() {
-    // Getting the current time and calculating the time left to the deadline
     const now = new Date().getTime();
     const timeLeftToDeadLine = countDownDate - now;
     const totalMinutes = Math.floor(timeLeftToDeadLine / (1000 * 60));
     const hours = Math.floor(totalMinutes / 60);
     const minutes = totalMinutes % 60;
     const seconds = Math.floor((timeLeftToDeadLine % (1000 * 60)) / 1000);
-  
+
     if (hours > 0) {
       setTimeLeftString(totalMinutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0'));
     } else {
       setTimeLeftString(minutes.toString().padStart(2, '0') + ':' + seconds.toString().padStart(2, '0'));
     }
-    
-    if (timeLeftToDeadLine > 0) {
-      requestAnimationFrame(updateCountdown);
+  
+    if (timeLeftToDeadLine > 0 && meditationStart) {
+      if (!requestID) {
+        // Request ID to cancel the animation frame
+        setRequestID(window.requestAnimationFrame(updateCountdown));
+      }
     } else {
       setTimeLeftString('00:00');
       setMinutes(0);
+      setButtonVisible(false);
     }
   }
-  
-  
 
-  useEffect( () => {
-    updateCountdown();  
-    // setTimeLeftString(getMeditationTime(minutes));
-  }, [countDownDate] )
-
-  
   useEffect(() => {
     setMinutes(minutes);
     setTimeLeftString(getMeditationTime(minutes));
@@ -69,13 +65,15 @@ function App() {
   useEffect(() => {
     if (meditationStart) {
       setButtonText('Stop');
-      console.log(minutes);
-      if(minutes > 0) setCountDownDate(addMinutes(new Date(), minutes));
+      updateCountdown();
     }
     else {
+      if (requestID) {
+        window.cancelAnimationFrame(requestID);
+        setRequestID(null);
+      }
       setButtonText('Start');
     }
-    
   }, [meditationStart]);
 
   return (
@@ -94,23 +92,24 @@ function App() {
         buttonVisible ? <button className="StartButton" onClick={() => {
           if (meditationStart) {
             setMeditationStart(false);
+            // Resetting to the original time
+            setMinutes(minutes);
+            setTimeLeftString(getMeditationTime(minutes));
           }
           else {
             setMeditationStart(true);
+            if(minutes > 0) setCountDownDate(addMinutes(new Date(), minutes));
           }
           // updateCountdown();
         }}>{buttonText}</button>: null
       }
-      
         <div>
           {<img src={sun} className="Sun-logo" alt="sun" />}
         </div>
       </div>
-
       {
         timeVisible ? <p className="TimeView"> {timeLeftString} </p>: null
       }
-      
     </div>
   );
 }
