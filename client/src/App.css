@@ -50,18 +50,22 @@ table {
 
 /* Animation */
 @keyframes sizeAnimation {
-
   from {
     width: 40vw;
   }
-
   to {
     width: 50vw;
   }
-
-
 }
 
+@keyframes dissolve {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 /* Styling */
 .App {
   background-color: #CEE6EE;
@@ -86,6 +90,19 @@ table {
   padding: 8px 12px 8px 12px;
   font-size: large;
   cursor: pointer;
+}
+
+.MeditationComplete {
+  position: absolute;
+  background-color: #FFBE31;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 24px;
+  animation-name: dissolve;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  animation-delay: 10s;
 }
 
 

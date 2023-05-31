@@ -29,6 +29,7 @@ function App() {
   const [countDownDate, setCountDownDate] = useState(null);
   const [buttonText, setButtonText] = useState('Start');
   const [requestID, setRequestID] = useState(null);
+  const [meditationComplete, setMeditationComplete] = useState(false);
 
   function updateCountdown() {
     const now = new Date().getTime();
@@ -54,6 +55,7 @@ function App() {
       setMinutes(0);
       setButtonVisible(false);
       setMeditationStart(false);
+      setMeditationComplete(true);
     }
   }
 
@@ -89,13 +91,14 @@ function App() {
         </div>
       </div>
       <div className="Sun">
-      {
+      { 
         buttonVisible ? <button className="StartButton" onClick={() => {
           if (meditationStart) {
             setMeditationStart(false);
             // Resetting to the original time
             setMinutes(minutes);
             setTimeLeftString(getMeditationTime(minutes));
+            setMeditationComplete(false);
           }
           else {
             setMeditationStart(true);
@@ -103,6 +106,9 @@ function App() {
           }
           // updateCountdown();
         }}>{buttonText}</button>: null
+      }
+      {
+        meditationComplete ? <h1 className="MeditationComplete"> Meditation Complete! </h1> : null
       }
         <div>
           {<img src={sun} className="Sun-logo" alt="sun" />}
