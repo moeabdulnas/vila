@@ -20,9 +20,8 @@ const getMeditationTime = (minutes) => {
   }
 }
 
-// TODO: Make actual time start to tick from for example 10:00 at first.
 function App() {
-  const [minutes, setMinutes] = useState(0.2);
+  const [minutes, setMinutes] = useState(0.1);
   const [timeLeftString, setTimeLeftString] = useState(null);
   const [meditationStart, setMeditationStart] = useState(false);
   const [buttonVisible, setButtonVisible] = useState(false);
@@ -54,6 +53,7 @@ function App() {
       setTimeLeftString('00:00');
       setMinutes(0);
       setButtonVisible(false);
+      setMeditationStart(false);
     }
   }
 
@@ -76,6 +76,7 @@ function App() {
     }
   }, [meditationStart]);
 
+  // TODO: Add text upon meditation completion
   return (
     <div className="App">
       <div className='Navbar'>
