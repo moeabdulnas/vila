@@ -1,13 +1,6 @@
 import './App.css';
 import icon from './assets/images/logo.png';
 import sun from './assets/images/sun.svg';
-import bell1 from './assets/sounds/bell1.mp3';
-import bell2 from './assets/sounds/bell2.mp3';
-import bell3 from './assets/sounds/bell3.mp3';
-import forest from './assets/sounds/forest.mp3';
-import rain from './assets/sounds/rain.mp3';
-import thunder from './assets/sounds/thunder.mp3';
-import Timer from './components/Timer.jsx';
 import Options from './components/Options.jsx';
 import { useEffect, useState, useRef } from "react";
 import { AiFillSound  } from "react-icons/ai";
@@ -32,7 +25,7 @@ const getMeditationTime = (minutes) => {
 }
 
 function App() {
-  const [minutes, setMinutes] = useState(10);
+  const [minutes, setMinutes] = useState(0.3);
   const [timeLeftString, setTimeLeftString] = useState(null);
   const [meditationStart, setMeditationStart] = useState(false);
   const [buttonVisible, setButtonVisible] = useState(false);
@@ -41,10 +34,10 @@ function App() {
   const [buttonText, setButtonText] = useState('Start');
   const [requestID, setRequestID] = useState(null);
   const [meditationComplete, setMeditationComplete] = useState(false);
-  const [setBell, setSetBell] = useState(null);
-  const [setSound, setSetSound] = useState(null);
-  const [setBellVolume, setSetBellVolume] = useState(null);
-  const [setSoundVolume, setSetSoundVolume] = useState(null);
+  const [bell, setBell] = useState(null);
+  const [sound, setSound] = useState(null);
+  const [bellVolume, setBellVolume] = useState(5);
+  const [soundVolume, setSoundVolume] = useState(5);
 
   function updateCountdown() {
     const now = new Date().getTime();
@@ -71,6 +64,7 @@ function App() {
       setButtonVisible(false);
       setMeditationStart(false);
       setMeditationComplete(true);
+      if (bell) bell.play();
     }
   }
 
@@ -79,10 +73,14 @@ function App() {
     setTimeLeftString(getMeditationTime(minutes));
   }, [minutes]);
 
+  //TODO: If user want to meditate again, make sure h1 meditation complete is gone.
   useEffect(() => {
     if (meditationStart) {
       setButtonText('Stop');
       updateCountdown();
+      if (bell) {
+        bell.play();
+      }
     }
     else {
       if (requestID) {
@@ -93,6 +91,14 @@ function App() {
     }
   }, [meditationStart]);
 
+  useEffect(() => {
+    if (bell) bell.play();
+  }, [bell] );
+
+  useEffect(() => {
+    if (bell) bell.volume = bellVolume / 10;
+  }, [bellVolume, bell]);
+
   // TODO: Add text upon meditation completion
   return (
     <div className="App">
@@ -101,8 +107,10 @@ function App() {
         { <img src={icon} className="App-logo" alt="logo" />}
         </div>
         <div className='OptionsDiv'>
-          <Options setMins={setMinutes} mins={minutes} 
-          setString={setTimeLeftString} setTimeVisible={setTimeVisible} setButtonVisible={setButtonVisible}/>
+          <Options setMins={setMinutes} mins={minutes} setBell={setBell} setSound={setSound} 
+          setBellVolume={setBellVolume} setSoundVolume={setSoundVolume} setString={setTimeLeftString} 
+          bell={bell} sound={sound} bellVolume={bellVolume} soundVolume={soundVolume}
+          setTimeVisible={setTimeVisible} setButtonVisible={setButtonVisible}/>
         </div>
       </div>
       <div className="Sun">

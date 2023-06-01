@@ -4,25 +4,29 @@ import cloud from "../assets/images/cloud.png";
 import sand from "../assets/images/sand.png";
 import "./Options.css";
 import MinutesDialog from "./dialogs/MinutesDialog.jsx";
+import BellDialog from "./dialogs/BellDialog.jsx";
+import SoundDialog from "./dialogs/SoundDialog.jsx";
 
 const Options = (props) => {
     const [showMinuteDialog, setShowMinuteDialog] = useState(false);
+    const [showBellDialog, setShowBellDialog] = useState(false);
+    const [showSoundDialog, setShowSoundDialog] = useState(false);
+    
 
     return (
         <main className="Container">
             <div className="Options">
                 {/* TODO: Set hover effect*/}
-                <button className="Sand-button" 
-                onClick={
-                    () => {
+                <button className="Sand-button" onClick={() => {
                         setShowMinuteDialog(true);
                     }     
-                }
-                >
-                    <img src={sand} className="Sand-logo option" alt="bell" />
+                }>
+                <img src={sand} className="Sand-logo option" alt="bell" />
                 </button>
-                <button className="Bell-button">
-                    <img src={bell} className="Bell-logo option" alt="bell" />
+                <button className="Bell-button" onClick={ () => {
+                    setShowBellDialog(true);
+                }}>
+                <img src={bell} className="Bell-logo option" alt="bell" />
                 </button>
                 <button className="Cloud-button">
                     <img src={cloud} className="Cloud-logo option" alt="bell" />
@@ -30,6 +34,8 @@ const Options = (props) => {
             </div>
             {showMinuteDialog ? <MinutesDialog showMinuteDialog={setShowMinuteDialog} setMinutes={props.setMins}
                             mins={props.mins} setTimeVisible={props.setTimeVisible} setButtonVisible={props.setButtonVisible}/> : null}
+            {showBellDialog ? <BellDialog showBellDialog={setShowBellDialog} setBellVolume={props.setBellVolume} setBell={props.setBell}
+                            bell={props.bell} bellVolume={props.bellVolume}/> : null}
         </main>
     )
 }
