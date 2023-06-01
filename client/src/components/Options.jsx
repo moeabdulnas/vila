@@ -27,7 +27,9 @@ const Options = (props) => {
                 }}>
                 <img src={bell} className="Bell-logo option" alt="bell" />
                 </button>
-                <button className="Cloud-button">
+                <button className="Cloud-button" onClick={ () => {
+                    setShowSoundDialog(true);
+                }}>
                     <img src={cloud} className="Cloud-logo option" alt="bell" />
                 </button>
             </div>
@@ -35,6 +37,7 @@ const Options = (props) => {
                             mins={props.mins} setTimeVisible={props.setTimeVisible} setButtonVisible={props.setButtonVisible} setMeditationComplete={props.setMeditationComplete}/> : null}
             {showBellDialog ? <BellDialog showBellDialog={setShowBellDialog} setBellVolume={props.setBellVolume} setBell={props.setBell}
                             bell={props.bell} bellVolume={props.bellVolume}/> : null}
+            {showSoundDialog ? <SoundDialog showSoundDialog={setShowSoundDialog} setSoundVolume={props.setSoundVolume} setSound={props.setSound} sound={props.sound} soundVolume={props.soundVolume}/> : null}
         </main>
     )
 }

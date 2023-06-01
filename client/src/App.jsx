@@ -4,9 +4,7 @@ import sun from './assets/images/sun.svg';
 import Options from './components/Options.jsx';
 import { useEffect, useState, useRef } from "react";
 import { AiFillSound  } from "react-icons/ai";
-import { WiRain, WiThunderstorm, WiCloudyGusts } from "react-icons/wi"; // Wind probably not needed
-import { BsMusicNote } from "react-icons/bs"; // Probably not needed
-import { MdForest } from "react-icons/md";
+
 
 
 function addMinutes(date, minutes) {
@@ -25,7 +23,7 @@ const getMeditationTime = (minutes) => {
 }
 
 function App() {
-  const [minutes, setMinutes] = useState(0.3);
+  const [minutes, setMinutes] = useState(10);
   const [timeLeftString, setTimeLeftString] = useState(null);
   const [meditationStart, setMeditationStart] = useState(false);
   const [buttonVisible, setButtonVisible] = useState(false);
@@ -65,6 +63,10 @@ function App() {
       setMeditationStart(false);
       setMeditationComplete(true);
       if (bell) bell.play();
+      if (sound) {
+        sound.pause();
+        sound.currentTime = 0;
+      }
     }
   }
 
@@ -80,6 +82,13 @@ function App() {
       updateCountdown();
       if (bell) {
         bell.play();
+      }
+      if (sound) {
+        setTimeout(() => {
+
+          sound.play();
+          sound.loop = true;
+        }, 5000);
       }
     }
     else {
@@ -98,6 +107,14 @@ function App() {
   useEffect(() => {
     if (bell) bell.volume = bellVolume / 10;
   }, [bellVolume, bell]);
+
+  useEffect(() => {
+    if (sound) sound.play();
+  }, [sound] );
+
+  useEffect(() => {
+    if (sound) sound.volume = soundVolume / 10;
+  }, [sound, soundVolume]);
 
   // TODO: Add text upon meditation completion
   return (
