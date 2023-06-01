@@ -11,24 +11,28 @@ const Options = (props) => {
     const [showMinuteDialog, setShowMinuteDialog] = useState(false);
     const [showBellDialog, setShowBellDialog] = useState(false);
     const [showSoundDialog, setShowSoundDialog] = useState(false);
-    
-
     return (
         <main className="Container">
             <div className="Options">
                 {/* TODO: Set hover effect*/}
                 <button className="Sand-button" onClick={() => {
                         setShowMinuteDialog(true);
+                        setShowBellDialog(false);
+                        setShowSoundDialog(false);
                 }}>
                 <img src={sand} className="Sand-logo option" alt="bell" />
                 </button>
                 <button className="Bell-button" onClick={ () => {
                     setShowBellDialog(true);
+                    setShowMinuteDialog(false);
+                    setShowSoundDialog(false);
                 }}>
                 <img src={bell} className="Bell-logo option" alt="bell" />
                 </button>
                 <button className="Cloud-button" onClick={ () => {
                     setShowSoundDialog(true);
+                    setShowMinuteDialog(false);
+                    setShowBellDialog(false);
                 }}>
                     <img src={cloud} className="Cloud-logo option" alt="bell" />
                 </button>

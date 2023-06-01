@@ -47,8 +47,10 @@ const BellDialog = (props) => {
                         <form method="dialog">
                         <button className='Ok' onClick={(e) => {
                                 props.showBellDialog(false);
-                                props.bell.pause();
-                                props.bell.currentTime = 0;
+                                if (props.bell) {
+                                    props.bell.pause();
+                                    props.bell.currentTime = 0;
+                                }
                                 e.preventDefault();
                             }
                             }>OK</button>
