@@ -23,7 +23,7 @@ const getMeditationTime = (minutes) => {
 }
 
 function App() {
-  const [minutes, setMinutes] = useState(10);
+  const [minutes, setMinutes] = useState(0.2);
   const [timeLeftString, setTimeLeftString] = useState(null);
   const [meditationStart, setMeditationStart] = useState(false);
   const [buttonVisible, setButtonVisible] = useState(false);
@@ -62,11 +62,21 @@ function App() {
       setButtonVisible(false);
       setMeditationStart(false);
       setMeditationComplete(true);
-      if (bell) bell.play();
-      if (sound) {
-        sound.pause();
-        sound.currentTime = 0;
+      if (bell) {
+        console.log('bell stop');
+        // For testing, not needed when meditation time > 1 minute;
+        // bell.pause();
+        // bell.currentTime = 0;
+        bell.play();
       }
+      if (sound) {
+        setTimeout(() => {
+          sound.pause();
+          sound.currentTime = 0;
+        }, 30000);
+
+      }
+
     }
   }
 
@@ -75,20 +85,13 @@ function App() {
     setTimeLeftString(getMeditationTime(minutes));
   }, [minutes]);
 
-  //TODO: If user want to meditate again, make sure h1 meditation complete is gone.
   useEffect(() => {
     if (meditationStart) {
       setButtonText('Stop');
       updateCountdown();
       if (bell) {
+        console.log('bell');
         bell.play();
-      }
-      if (sound) {
-        setTimeout(() => {
-
-          sound.play();
-          sound.loop = true;
-        }, 5000);
       }
     }
     else {
@@ -96,6 +99,7 @@ function App() {
         window.cancelAnimationFrame(requestID);
         setRequestID(null);
       }
+      // TODO: Could add lowering volume of sound, until it is 0.
       setButtonText('Start');
     }
   }, [meditationStart]);
@@ -109,14 +113,16 @@ function App() {
   }, [bellVolume, bell]);
 
   useEffect(() => {
-    if (sound) sound.play();
+    if (sound) {
+      sound.play();
+      sound.loop = true;
+    }
   }, [sound] );
 
   useEffect(() => {
     if (sound) sound.volume = soundVolume / 10;
   }, [sound, soundVolume]);
 
-  // TODO: Add text upon meditation completion
   return (
     <div className="App">
       <div className='Navbar'>
@@ -144,7 +150,6 @@ function App() {
             setMeditationStart(true);
             if(minutes > 0) setCountDownDate(addMinutes(new Date(), minutes));
           }
-          // updateCountdown();
         }}>{buttonText}</button>: null
       }
       {

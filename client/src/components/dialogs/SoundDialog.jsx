@@ -63,8 +63,6 @@ const SoundDialog = (props) => {
                         <form method="dialog">
                         <button className='Ok' onClick={(e) => {
                                 props.showSoundDialog(false);
-                                props.sound.pause();
-                                props.sound.currentTime = 0;
                                 e.preventDefault();
                             }
                             }>OK</button>
