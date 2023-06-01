@@ -33,7 +33,7 @@ function App() {
   const [countDownDate, setCountDownDate] = useState(null);
   const [buttonText, setButtonText] = useState('Start');
   const [requestID, setRequestID] = useState(null);
-  const [meditationComplete, setMeditationComplete] = useState(false);
+  const [meditationComplete, setMeditationComplete] = useState(null);
   const [bell, setBell] = useState(null);
   const [sound, setSound] = useState(null);
   const [bellVolume, setBellVolume] = useState(5);
@@ -110,7 +110,7 @@ function App() {
           <Options setMins={setMinutes} mins={minutes} setBell={setBell} setSound={setSound} 
           setBellVolume={setBellVolume} setSoundVolume={setSoundVolume} setString={setTimeLeftString} 
           bell={bell} sound={sound} bellVolume={bellVolume} soundVolume={soundVolume}
-          setTimeVisible={setTimeVisible} setButtonVisible={setButtonVisible}/>
+          setTimeVisible={setTimeVisible} setButtonVisible={setButtonVisible} setMeditationComplete={setMeditationComplete}/>
         </div>
       </div>
       <div className="Sun">

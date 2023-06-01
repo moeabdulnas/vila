@@ -19,8 +19,7 @@ const Options = (props) => {
                 {/* TODO: Set hover effect*/}
                 <button className="Sand-button" onClick={() => {
                         setShowMinuteDialog(true);
-                    }     
-                }>
+                }}>
                 <img src={sand} className="Sand-logo option" alt="bell" />
                 </button>
                 <button className="Bell-button" onClick={ () => {
@@ -33,7 +32,7 @@ const Options = (props) => {
                 </button>
             </div>
             {showMinuteDialog ? <MinutesDialog showMinuteDialog={setShowMinuteDialog} setMinutes={props.setMins}
-                            mins={props.mins} setTimeVisible={props.setTimeVisible} setButtonVisible={props.setButtonVisible}/> : null}
+                            mins={props.mins} setTimeVisible={props.setTimeVisible} setButtonVisible={props.setButtonVisible} setMeditationComplete={props.setMeditationComplete}/> : null}
             {showBellDialog ? <BellDialog showBellDialog={setShowBellDialog} setBellVolume={props.setBellVolume} setBell={props.setBell}
                             bell={props.bell} bellVolume={props.bellVolume}/> : null}
         </main>
