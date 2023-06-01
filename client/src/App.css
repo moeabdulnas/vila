@@ -51,10 +51,10 @@ table {
 /* Animation */
 @keyframes sizeAnimation {
   from {
-    width: 40vw;
+    height: 40vh;
   }
   to {
-    width: 50vw;
+    height: 50vh;
   }
 }
 
@@ -117,7 +117,7 @@ table {
   } */
 }
 
-@media screen and (min-width: 600px) and (max-width: 1444px) {
+@media screen and (min-width: 600px) {
   /* .App-logo {
     top: 32px;
     left: 32px;
@@ -134,7 +134,7 @@ table {
   }
 
   .Sun-logo {
-    width: 35vw;
+    height: 35vw;
     animation-name: sizeAnimation;
     animation-duration: 4s;
     animation-iteration-count: infinite;

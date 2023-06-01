@@ -8,8 +8,6 @@ import MinutesDialog from "./dialogs/MinutesDialog.jsx";
 const Options = (props) => {
     const [showMinuteDialog, setShowMinuteDialog] = useState(false);
 
-
-
     return (
         <main className="Container">
             <div className="Options">

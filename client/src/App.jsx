@@ -1,9 +1,20 @@
 import './App.css';
 import icon from './assets/images/logo.png';
 import sun from './assets/images/sun.svg';
+import bell1 from './assets/sounds/bell1.mp3';
+import bell2 from './assets/sounds/bell2.mp3';
+import bell3 from './assets/sounds/bell3.mp3';
+import forest from './assets/sounds/forest.mp3';
+import rain from './assets/sounds/rain.mp3';
+import thunder from './assets/sounds/thunder.mp3';
 import Timer from './components/Timer.jsx';
 import Options from './components/Options.jsx';
 import { useEffect, useState, useRef } from "react";
+import { AiFillSound  } from "react-icons/ai";
+import { WiRain, WiThunderstorm, WiCloudyGusts } from "react-icons/wi"; // Wind probably not needed
+import { BsMusicNote } from "react-icons/bs"; // Probably not needed
+import { MdForest } from "react-icons/md";
+
 
 function addMinutes(date, minutes) {
   return new Date(date.getTime() + minutes*60000);
@@ -32,7 +43,8 @@ function App() {
   const [meditationComplete, setMeditationComplete] = useState(false);
   const [setBell, setSetBell] = useState(null);
   const [setSound, setSetSound] = useState(null);
-  const [setVolume, setSetVolume] = useState(null);
+  const [setBellVolume, setSetBellVolume] = useState(null);
+  const [setSoundVolume, setSetSoundVolume] = useState(null);
 
   function updateCountdown() {
     const now = new Date().getTime();
