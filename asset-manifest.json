@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/vila/static/css/main.c82f7e77.css",
+    "main.js": "/vila/static/js/main.271b1c95.js",
+    "static/js/787.c4e7f8f9.chunk.js": "/vila/static/js/787.c4e7f8f9.chunk.js",
+    "static/media/thunder.mp3": "/vila/static/media/thunder.3dd47e54f84bb2b65c07.mp3",
+    "static/media/forest.mp3": "/vila/static/media/forest.55a5426bee2567c3d052.mp3",
+    "static/media/rain.mp3": "/vila/static/media/rain.90424a5c626e715b609f.mp3",
+    "static/media/bell1.mp3": "/vila/static/media/bell1.f4e760e6d150b19dbd46.mp3",
+    "static/media/bell2.mp3": "/vila/static/media/bell2.761d50c4bfeee766c781.mp3",
+    "static/media/bell3.mp3": "/vila/static/media/bell3.d6c626396a8549445c4a.mp3",
+    "static/media/sun.svg": "/vila/static/media/sun.a9822b04cd16f7203ccdb28c097d827e.svg",
+    "index.html": "/vila/index.html",
+    "main.c82f7e77.css.map": "/vila/static/css/main.c82f7e77.css.map",
+    "main.271b1c95.js.map": "/vila/static/js/main.271b1c95.js.map",
+    "787.c4e7f8f9.chunk.js.map": "/vila/static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c82f7e77.css",
+    "static/js/main.271b1c95.js"
+  ]
+}
