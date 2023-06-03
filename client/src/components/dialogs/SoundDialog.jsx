@@ -12,7 +12,7 @@ const SoundDialog = (props) => {
         props.showSoundDialog ? (
             <div>
                 <dialog className='SoundOption' open>
-                    <p className='SoundParagraph'>Choose Sound</p>
+                    <p className='SoundParagraph'>sound</p>
                     <WiRain className='Rain' onClick={
                         (e) => {
                             if (props.sound) {
@@ -43,7 +43,7 @@ const SoundDialog = (props) => {
                             e.preventDefault();
                         }
                     }/>
-                    <p className='SoundParagraph'>Volume</p>
+                    <p className='SoundParagraph'>volume</p>
                     <button className='Minus Step' onClick={
                             (e) => {
                                 if (props.soundVolume > 1) props.setSoundVolume(props.soundVolume - 1);

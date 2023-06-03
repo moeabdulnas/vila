@@ -1,0 +1,24 @@
+/* .BellOptions {
+    background: black;
+    width: max-content;
+    text-align: center;
+    align-items: center;
+} */
+
+/* .BellDialogContainer {
+    display: flex;
+    flex-direction: column;
+} */
+
+/* input[type='number']:disabled {
+    -moz-appearance: textfield;
+    text-align: center;
+    font-size: 32px;
+    border: none;
+    color: #203020;
+    background-color: #FFFFFF;
+  } */
+  
+.BellParagraph {
+    margin-bottom: 4px;
+}

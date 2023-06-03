@@ -74,14 +74,12 @@ table {
   text-align: center;
 }
 
-.TimeView {
-  background-color: inherit;
-  bottom: 12%;
-  /* left: 46%; */
-  position: relative;
-  font-size: 48px;
-  text-align: center;
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
+
+
 
 .StartButton {
   position: absolute;
@@ -125,7 +123,7 @@ table {
   } */
 /*} */
 
-@media screen and (min-width: 300px) {
+@media screen and (max-width: 450px) {
   /* .App-logo {
     top: 32px;
     left: 32px;
@@ -134,26 +132,39 @@ table {
 
   .Navbar {
     display: flex;
-    justify-content: space-between;
-    top: 32px;
+    /* justify-content: space-between; */
+    flex-direction: column;
+    align-items: center;
+    /* top: 32px;
     left: 5%;
-    right: 4%;
-    position: absolute;
+    right: 4%; */
+    /* position: absolute; */
+
   }
 
   .Sun-logo {
-    height: 40vh;
+    height: 50vh;
     animation-name: sizeAnimation;
     animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
     animation-direction: alternate;
+    max-height: 85%;
   }
   .Sun {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 90vh;
+    height: 60%;
+  }
+
+  .TimeView {
+    background-color: inherit;
+    /* bottom: 4%; */
+    /* left: 46%; */
+    position: relative;
+    font-size: 48px;
+    text-align: center;
   }
 }
 

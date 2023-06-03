@@ -7,7 +7,7 @@ const MinutesDialog = (props) => {
             <div>
                 <dialog className='TimeOption' open>
                     <p className='MinutesParagraph'>minutes</p>
-                    <div className='MinuteStepper'>
+                    <div className='Stepper'>
                         <button className='Minus Step' onClick={
                             (e) => {
                                 if (props.mins <= 5 && props.mins > 1) 

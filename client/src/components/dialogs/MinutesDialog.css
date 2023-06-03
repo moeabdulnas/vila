@@ -2,17 +2,16 @@
 dialog {
     /* width: 10vw; */
     /*Should change this vh to something else*/
-    height: 14vh;
     width: inherit;
     background-color: #198aac68;
     border: none;
     border-radius: 8px;
-    padding: 8px 0 32px 0;
+    padding: 8px 0;
     margin-top: 8px;
     position: relative;
     color: #fffFff;
     text-align: center;
-    font-size: 28px;
+    font-size: 2rem;
   }
   
   /* TODO: Find good typographyr*/
@@ -22,19 +21,21 @@ dialog {
   }
   
   .Ok {
-    position: absolute;
-    bottom: 10%;
-    right: 36%;
+    /* position: absolute; */
+    /* bottom: 10%;
+    right: 36%; */
     color: #0084ac;
     background-color: #FFD347;
-    width: 60px;
-    height: 28px;
+    /* width: 60px;
+    height: 28px; */
+    width: 5rem;
+    height: 2rem;
     border-radius: 8px;
     border: none;
     cursor: pointer;
   }
   
-  .MinuteStepper {
+  .Stepper {
     display: flex;
     justify-content: center;
   }
