@@ -27,6 +27,11 @@ img {
     margin: auto;
 }
 
+@media screen and (min-width: 450px) {
+    .Container {
+        position: absolute;;
+    }
+}
 /* 
 Hover effect attempt on buttons/doesn't work now
 .option:after {
