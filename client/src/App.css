@@ -49,12 +49,21 @@ table {
 /* Applied css below */
 
 /* Animation */
-@keyframes sizeAnimation {
+@keyframes sizeAnimation1 {
   from {
-    height: 40vh;
+    width: 40vh;
   }
   to {
-    height: 50vh;
+    width: 50vh;
+  }
+}
+
+@keyframes sizeAnimation2 {
+  from {
+    height: 45vh;
+  }
+  to {
+    height: 55vh;
   }
 }
 
@@ -123,7 +132,7 @@ body {
   } */
 /*} */
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 600px) {
   /* .App-logo {
     top: 32px;
     left: 32px;
@@ -143,13 +152,58 @@ body {
   }
 
   .Sun-logo {
-    height: 50vh;
-    animation-name: sizeAnimation;
+    /* height: 50vh; */
+    animation-name: sizeAnimation1;
     animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
     animation-direction: alternate;
-    max-height: 85%;
+    /* max-width: 90%; */
+  }
+  .Sun {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60%;
+  }
+
+  .TimeView {
+    background-color: inherit;
+    /* bottom: 4%; */
+    /* left: 46%; */
+    position: relative;
+    font-size: 48px;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 451px) {
+  /* .App-logo {
+    top: 32px;
+    left: 32px;
+    position: absolute;
+  } */
+
+  .Navbar {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    /* align-items: center; */
+    /* top: 32px;
+    left: 5%;
+    right: 4%; */
+    /* position: absolute; */
+    padding: 2% 4%;
+  }
+
+  .Sun-logo {
+    height: 50vh;
+    animation-name: sizeAnimation2;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+    max-width: 100%;
   }
   .Sun {
     display: flex;
