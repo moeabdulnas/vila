@@ -17,23 +17,33 @@ const Options = (props) => {
             <div className="Options">
                 {/* TODO: Set hover effect*/}
                 <button className="Sand-button" onClick={() => {
-                        setShowMinuteDialog(true);
-                        setShowBellDialog(false);
-                        setShowSoundDialog(false);
+                        if (showMinuteDialog) setShowMinuteDialog(false);
+                        else {
+                            setShowMinuteDialog(true);
+                            setShowBellDialog(false);
+                            setShowSoundDialog(false);
+                        }
+
                 }}>
                 <img src={sand} className="Sand-logo option" alt="bell" />
                 </button>
                 <button className="Bell-button" onClick={ () => {
-                    setShowBellDialog(true);
-                    setShowMinuteDialog(false);
-                    setShowSoundDialog(false);
+                    if (showBellDialog) setShowBellDialog(false);
+                    else {
+                        setShowBellDialog(true);
+                        setShowMinuteDialog(false);
+                        setShowSoundDialog(false);
+                    }
                 }}>
                 <img src={bell} className="Bell-logo option" alt="bell" />
                 </button>
                 <button className="Cloud-button" onClick={ () => {
-                    setShowSoundDialog(true);
-                    setShowMinuteDialog(false);
-                    setShowBellDialog(false);
+                    if (showSoundDialog) setShowSoundDialog(false);
+                    else {
+                        setShowSoundDialog(true);
+                        setShowMinuteDialog(false);
+                        setShowBellDialog(false);
+                    }
                 }}>
                  <IconContext.Provider
                     value={{ color: '#1989AC', size: '2.4rem', className: 'Sound-logo option' }}

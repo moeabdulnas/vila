@@ -23,7 +23,7 @@ const getMeditationTime = (minutes) => {
 }
 
 function App() {
-  const [minutes, setMinutes] = useState(0.2);
+  const [minutes, setMinutes] = useState(10);
   const [timeLeftString, setTimeLeftString] = useState(null);
   const [meditationStart, setMeditationStart] = useState(false);
   const [buttonVisible, setButtonVisible] = useState(false);

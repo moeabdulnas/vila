@@ -9,12 +9,13 @@
 }
 
 .Options {
-    width: max-content;
+    /* width: max-content; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
 }
 
-.Sand-logo, .Bell-logo {
-    margin-right: 32px;
-}
+
 
 .Bell-button, .Cloud-button, .Sand-button {
     border: none;
@@ -24,7 +25,7 @@
 }
 
 img {
-    margin: auto;
+    /* margin: auto; */
 }
 
 @media screen and (min-width: 600px) {
