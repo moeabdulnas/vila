@@ -6,7 +6,8 @@ import "./Options.css";
 import MinutesDialog from "./dialogs/MinutesDialog.jsx";
 import BellDialog from "./dialogs/BellDialog.jsx";
 import SoundDialog from "./dialogs/SoundDialog.jsx";
-
+import { AiFillSound  } from "react-icons/ai";
+import { IconContext } from "react-icons";
 const Options = (props) => {
     const [showMinuteDialog, setShowMinuteDialog] = useState(false);
     const [showBellDialog, setShowBellDialog] = useState(false);
@@ -34,7 +35,13 @@ const Options = (props) => {
                     setShowMinuteDialog(false);
                     setShowBellDialog(false);
                 }}>
-                    <img src={cloud} className="Cloud-logo option" alt="bell" />
+                 <IconContext.Provider
+                    value={{ color: '#1989AC', size: '2.4rem', className: 'Sound-logo option' }}
+                    >
+                    <div>
+                    <AiFillSound/>
+                    </div>
+                    </IconContext.Provider>
                 </button>
             </div>
             {showMinuteDialog ? <MinutesDialog showMinuteDialog={setShowMinuteDialog} setMinutes={props.setMins}
