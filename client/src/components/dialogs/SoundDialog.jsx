@@ -44,29 +44,31 @@ const SoundDialog = (props) => {
                         }
                     }/>
                     <p className='SoundParagraph'>volume</p>
-                    <button className='Minus Step' onClick={
-                            (e) => {
-                                if (props.soundVolume > 1) props.setSoundVolume(props.soundVolume - 1);
-                                e.preventDefault();
-                            }
-                        }>-</button>
-                        <input
-                            type='number' className='SoundVolume'
-                            value={props.soundVolume} min='1' max='10' step='1' readOnly disabled
-                        />
-                        <button className='Plus Step' onClick={
-                            (e) => {
-                                if (props.soundVolume < 10) props.setSoundVolume(props.soundVolume + 1);             
-                                e.preventDefault();
-                            }
-                        }>+</button>
-                        <form method="dialog">
-                        <button className='Ok' onClick={(e) => {
-                                props.showSoundDialog(false);
-                                e.preventDefault();
-                            }
-                            }>OK</button>
-                        </form>
+                    <div className='Stepper'>
+                        <button className='Minus Step' onClick={
+                                (e) => {
+                                    if (props.soundVolume > 1) props.setSoundVolume(props.soundVolume - 1);
+                                    e.preventDefault();
+                                }
+                            }>-</button>
+                            <input
+                                type='number' className='SoundVolume'
+                                value={props.soundVolume} min='1' max='10' step='1' readOnly disabled
+                            />
+                            <button className='Plus Step' onClick={
+                                (e) => {
+                                    if (props.soundVolume < 10) props.setSoundVolume(props.soundVolume + 1);             
+                                    e.preventDefault();
+                                }
+                            }>+</button>
+                    </div>
+                    <form method="dialog">
+                            <button className='Ok' onClick={(e) => {
+                                    props.showSoundDialog(false);
+                                    e.preventDefault();
+                                }
+                                }>OK</button>
+                            </form>
                 </dialog>
             </div>
         ) : null

@@ -1,0 +1,12 @@
+.SoundParagraph {
+    margin-bottom: 0.4rem;
+}
+
+.Rain, .Thunder, .Forest {
+    background-color: inherit;
+    margin: 0 6px;
+    background-color: #1989AC;
+    border-radius: 8px;;
+    font-size: 2.3rem;
+    padding: 4px;
+}
