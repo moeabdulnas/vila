@@ -1,7 +1,4 @@
-
 dialog {
-    /* width: 10vw; */
-    /*Should change this vh to something else*/
     width: inherit;
     background-color: #198aac68;
     border: none;
@@ -14,20 +11,14 @@ dialog {
     font-size: 2rem;
   }
   
-  /* TODO: Find good typographyr*/
   .MinutesParagraph {
     color: #fffFff;
     margin-bottom: 8px;
   }
   
   .Ok {
-    /* position: absolute; */
-    /* bottom: 10%;
-    right: 36%; */
     color: #0084ac;
     background-color: #FFD347;
-    /* width: 60px;
-    height: 28px; */
     width: 5rem;
     height: 2rem;
     border-radius: 8px;

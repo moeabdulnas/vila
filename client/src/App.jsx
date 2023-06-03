@@ -99,7 +99,7 @@ function App() {
         window.cancelAnimationFrame(requestID);
         setRequestID(null);
       }
-      // TODO: Could add lowering volume of sound, until it is 0.
+      // TODO: Could add lowering volume of sound, until it is 0. Fading down.
       setButtonText('Start');
     }
   }, [meditationStart]);

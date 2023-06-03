@@ -42,7 +42,6 @@ const MinutesDialog = (props) => {
                                 props.setTimeVisible(true);
                                 props.setButtonVisible(true);
                                 props.setMeditationComplete(false);
-
                                 e.preventDefault();
                             }
                             }>OK</button>

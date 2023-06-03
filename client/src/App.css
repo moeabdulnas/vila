@@ -51,10 +51,10 @@ table {
 /* Animation */
 @keyframes sizeAnimation1 {
   from {
-    width: 40vh;
+    width: 65%;
   }
   to {
-    width: 50vh;
+    width: 95%;
   }
 }
 
@@ -120,45 +120,20 @@ body {
   display: none;
 }
 
-
-/* TODO: Implement mediaqueries for smaller and really big screen sizes*/
-
-/* @media screen and (max-width: 599px) {
-  /* .App-logo {
-    top: 16px;
-    left: 80px;
-    position: absolute;
-    width: 200px;
-  } */
-/*} */
-
 @media screen and (max-width: 600px) {
-  /* .App-logo {
-    top: 32px;
-    left: 32px;
-    position: absolute;
-  } */
 
   .Navbar {
     display: flex;
-    /* justify-content: space-between; */
     flex-direction: column;
     align-items: center;
-    /* top: 32px;
-    left: 5%;
-    right: 4%; */
-    /* position: absolute; */
-
   }
 
   .Sun-logo {
-    /* height: 50vh; */
     animation-name: sizeAnimation1;
     animation-duration: 4s;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in-out;
     animation-direction: alternate;
-    /* max-width: 90%; */
   }
   .Sun {
     display: flex;
@@ -169,8 +144,6 @@ body {
 
   .TimeView {
     background-color: inherit;
-    /* bottom: 4%; */
-    /* left: 46%; */
     position: relative;
     font-size: 48px;
     text-align: center;
@@ -178,21 +151,11 @@ body {
 }
 
 @media screen and (min-width: 601px) {
-  /* .App-logo {
-    top: 32px;
-    left: 32px;
-    position: absolute;
-  } */
 
   .Navbar {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    /* align-items: center; */
-    /* top: 32px;
-    left: 5%;
-    right: 4%; */
-    /* position: absolute; */
     padding: 3% 5%;
   }
 
@@ -210,12 +173,11 @@ body {
     align-items: center;
     justify-content: center;
     height: 60%;
+    margin-bottom: 10px;
   }
 
   .TimeView {
     background-color: inherit;
-    /* bottom: 4%; */
-    /* left: 46%; */
     position: relative;
     font-size: 48px;
     text-align: center;
