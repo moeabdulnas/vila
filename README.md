@@ -62,7 +62,7 @@ git push origin feature/my-awesome-feature
 Once your pull request is reviewed, it will be merged into the main project if accepted. Thank you for your contribution!
 
 ### Issues
-There some known issues. Vila has not been tested well. Best experience is on Google Chrome desktop app.
+There some known issues. Vila has not been extensively tested. Best experience is on Google Chrome desktop app.
 - Safari (dekstop and mobile), and mobile browsers in general compatibility
 - Changing volume in-app on mobile does not work
 - Stopping a meditation does not work on mobile
